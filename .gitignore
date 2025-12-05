@@ -1,0 +1,33 @@
+# Generated files and directories from Gradle
+/build
+.gradle
+
+# Local configuration, such as the SDK path.
+# This file should not be checked into version control.
+local.properties
+
+# IDE files (Android Studio)
+# Ignores the entire .idea directory
+.idea/
+
+# Intermediate module files
+*.iml
+
+# Built artifacts
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# Java class files
+*.class
+
+# Log files
+*.log
+
+# Keystore files
+*.jks
+*.keystore
+
+# Test screenshots
+/captures/
