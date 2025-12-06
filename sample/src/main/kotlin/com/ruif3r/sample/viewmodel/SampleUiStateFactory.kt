@@ -1,8 +1,8 @@
 package com.ruif3r.sample.viewmodel
 
-import com.ruif3r.libmvicommon.MviViewStateFactory
+import com.ruif3r.libmvicommon.MviUiStateFactory
 
-class SampleUiStateFactory : MviViewStateFactory<SampleUiState, SampleResult> {
+class SampleUiStateFactory : MviUiStateFactory<SampleUiState, SampleResult> {
 
     override fun create(
         oldState: SampleUiState,

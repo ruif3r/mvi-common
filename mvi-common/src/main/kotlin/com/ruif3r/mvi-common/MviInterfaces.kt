@@ -13,7 +13,7 @@ interface MviResultFactory<I: MviIntent, R: MviResult> {
     fun create(intent: I): R
 }
 
-interface MviViewStateFactory<S: MviUiState, R: MviResult> {
+interface MviUiStateFactory<S: MviUiState, R: MviResult> {
     fun create(oldState: S,  result: R): S
 }
 

@@ -7,11 +7,11 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
-abstract class BaseMviViewModel<Intent : MviIntent, Result : MviResult, ViewState : MviUiState> (
+abstract class BaseMviViewModel<Intent : MviIntent, Result : MviResult, UiState : MviUiState> (
     private val resultFactory: MviResultFactory<Intent, Result>,
-    private val viewStateFactory: MviViewStateFactory<ViewState, Result>,
-    private val sideEffectFactory: MviSideEffectFactory<Result, ViewState>,
-    private val defaultViewState: ViewState
+    private val uiStateFactory: MviUiStateFactory<UiState, Result>,
+    private val sideEffectFactory: MviSideEffectFactory<Result, UiState>,
+    private val defaultViewState: UiState
 ) : MviViewModel<Intent>, ViewModel() {
 
     private val mutableViewState = MutableStateFlow(defaultViewState)
@@ -20,7 +20,7 @@ abstract class BaseMviViewModel<Intent : MviIntent, Result : MviResult, ViewStat
 
     val viewEffect = viewEffectChannel.receiveAsFlow()
 
-    internal val viewState: StateFlow<ViewState>
+    internal val viewState: StateFlow<UiState>
         get() = mutableViewState.asStateFlow()
 
     val intentFlow = MutableSharedFlow<Intent>()
@@ -33,7 +33,7 @@ abstract class BaseMviViewModel<Intent : MviIntent, Result : MviResult, ViewStat
                 .map { resultFactory.create(it) }
                 .onEach { Log.d(this.javaClass.canonicalName, "result created, $it") }
                 .runningFold(defaultViewState) { previous, result ->
-                    viewStateFactory.create(previous, result)
+                    uiStateFactory.create(previous, result)
                         .let {
                             sideEffectFactory.create(result, previous, it)?.let { sideEffect ->
                                 viewEffectChannel.send(sideEffect)
