@@ -1,4 +1,4 @@
-package com.ruif3r.libmvicommon
+package com.ruif3r.mvicommon
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
@@ -23,7 +23,7 @@ abstract class BaseMviViewModel<Intent : MviIntent, Result : MviResult, UiState 
     internal val viewState: StateFlow<UiState>
         get() = mutableViewState.asStateFlow()
 
-    val intentFlow = MutableSharedFlow<Intent>()
+    internal val intentFlow = MutableSharedFlow<Intent>()
 
 
     init {

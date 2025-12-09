@@ -1,4 +1,4 @@
-package com.ruif3r.libmvicommon
+package com.ruif3r.mvicommon
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

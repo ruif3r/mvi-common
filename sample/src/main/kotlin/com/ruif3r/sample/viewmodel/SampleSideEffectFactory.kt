@@ -1,7 +1,7 @@
 package com.ruif3r.sample.viewmodel
 
-import com.ruif3r.libmvicommon.MviSideEffect
-import com.ruif3r.libmvicommon.MviSideEffectFactory
+import com.ruif3r.mvicommon.MviSideEffect
+import com.ruif3r.mvicommon.MviSideEffectFactory
 
 class SampleSideEffectFactory : MviSideEffectFactory<SampleResult, SampleUiState> {
     override fun create(

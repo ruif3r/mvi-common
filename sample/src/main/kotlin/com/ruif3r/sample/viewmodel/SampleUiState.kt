@@ -1,6 +1,6 @@
 package com.ruif3r.sample.viewmodel
 
-import com.ruif3r.libmvicommon.MviUiState
+import com.ruif3r.mvicommon.MviUiState
 
 data class SampleUiState(
     val shouldShow: Boolean = false

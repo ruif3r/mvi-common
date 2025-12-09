@@ -1,6 +1,6 @@
 package com.ruif3r.sample.viewmodel
 
-import com.ruif3r.libmvicommon.MviUiStateFactory
+import com.ruif3r.mvicommon.MviUiStateFactory
 
 class SampleUiStateFactory : MviUiStateFactory<SampleUiState, SampleResult> {
 

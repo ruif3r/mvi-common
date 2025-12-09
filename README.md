@@ -25,6 +25,12 @@ The library is architected around the MVI pattern, which promotes a unidirection
 *   **View**: A passive interface that displays the state and emits user actions (`DefaultActivity` and its composables).
 *   **Intent**: Represents a user's intention to change the state (`MviIntent`).
 
+### Factory Pattern
+
+The library also leverages the Factory Pattern to decouple the `BaseMviViewModel` from the concrete creation of `Result`, `UiState`, and `SideEffect` objects.
+
+Instead of the `ViewModel` creating these objects directly, it delegates this responsibility to factory classes that are injected into its constructor (e.g., `SampleResultFactory`, `SampleUiStateFactory`). This makes the `ViewModel` more flexible and testable, as the creation logic is centralized and can be easily swapped or mocked.
+
 ### Dependency Injection Agnostic
 
 `DefaultActivity` is designed to be completely independent of any specific dependency injection framework. It achieves this by requiring the consuming Activity to provide the `ViewModel` instance.
@@ -47,7 +53,7 @@ sealed class SampleIntent : MviIntent {
 
 // Represents the outcome of an action
 sealed class SampleResult : MviResult {
-    data class ImageVisibilityToggled(val shouldShow: Boolean) : SampleResult()
+    object ImageVisibilityToggled() : SampleResult()
 }
 
 // Represents the UI state
@@ -74,6 +80,8 @@ class SampleViewModel(
 ### 3. Create an Activity
 
 Create an `Activity` that inherits from `DefaultActivity`. This class will be responsible for providing the `ViewModel` and defining the Composable UI.
+
+In the `SetContentComposable` function is where you place all the UI using the state parameter to react accordingly, which holds the current state data of the UI.
 
 The `sample` app uses **Koin** for dependency injection.
 

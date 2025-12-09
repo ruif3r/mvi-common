@@ -1,4 +1,4 @@
-package com.ruif3r.libmvicommon
+package com.ruif3r.mvicommon
 
 interface MviIntent
 interface MviResult

@@ -3,8 +3,8 @@ package com.ruif3r.sample
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.ui.tooling.preview.Preview
-import com.ruif3r.libmvicommon.DefaultActivity
-import com.ruif3r.libmvicommon.MviSideEffect
+import com.ruif3r.mvicommon.DefaultActivity
+import com.ruif3r.mvicommon.MviSideEffect
 import com.ruif3r.sample.theme.MvicommonprojectTheme
 import com.ruif3r.sample.ui.SampleButton
 import com.ruif3r.sample.ui.SampleIntent
@@ -36,7 +36,5 @@ class SampleActivity() : DefaultActivity<SampleIntent, SampleResult, SampleUiSta
 @Composable
 fun GreetingPreview() {
     MvicommonprojectTheme {
-        var show = false
-        SampleButton(show, { show = !show }, {})
     }
 }

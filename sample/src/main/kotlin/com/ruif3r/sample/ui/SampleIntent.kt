@@ -1,6 +1,6 @@
 package com.ruif3r.sample.ui
 
-import com.ruif3r.libmvicommon.MviIntent
+import com.ruif3r.mvicommon.MviIntent
 
 sealed class SampleIntent : MviIntent {
 
