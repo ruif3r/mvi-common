@@ -6,4 +6,5 @@ sealed class SampleIntent : MviIntent {
 
     object ToggleImageVisibility : SampleIntent()
 
+    object Navigate : SampleIntent()
 }

@@ -8,5 +8,6 @@ class SampleResultFactory : MviResultFactory<SampleIntent, SampleResult> {
     override fun create(intent: SampleIntent): SampleResult =
         when (intent) {
             SampleIntent.ToggleImageVisibility ->  SampleResult.ToggleImageVisibility
+            SampleIntent.Navigate -> SampleResult.Navigate
         }
 }

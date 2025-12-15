@@ -2,9 +2,9 @@
 # For more information, see https://docs.gradle.org/current/userguide/platforms.html#sub::toml-dependencies-format
 
 [versions]
-agp = "8.13.1"
+agp = "8.13.2"
 kotlin = "2.2.21"
-compose-bom = "2025.11.01"
+compose-bom = "2025.12.00"
 core-ktx = "1.17.0"
 fragment-ktx = "1.8.9"
 appcompat = "1.7.1"
@@ -12,7 +12,6 @@ junit = "4.13.2"
 androidx-test-ext-junit = "1.1.3"
 espresso-core = "3.4.0"
 lifecycle-runtime-ktx = "2.10.0"
-runtime = "1.9.5"
 koin = "4.1.1"
 
 [libraries]
@@ -38,6 +37,7 @@ koin-android = { module = "io.insert-koin:koin-android" }
 koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose" }
 koin-compose = { module = "io.insert-koin:koin-compose" }
 koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel" }
+koin-test = { module = "io.insert-koin:koin-test-junit4" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

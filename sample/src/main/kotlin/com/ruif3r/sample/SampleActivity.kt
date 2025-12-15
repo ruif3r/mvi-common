@@ -1,5 +1,6 @@
 package com.ruif3r.sample
 
+import android.widget.Toast
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.ui.tooling.preview.Preview
@@ -9,6 +10,7 @@ import com.ruif3r.sample.theme.MvicommonprojectTheme
 import com.ruif3r.sample.ui.SampleButton
 import com.ruif3r.sample.ui.SampleIntent
 import com.ruif3r.sample.viewmodel.SampleResult
+import com.ruif3r.sample.viewmodel.SampleSideEffect
 import com.ruif3r.sample.viewmodel.SampleUiState
 import com.ruif3r.sample.viewmodel.SampleViewModel
 import kotlinx.coroutines.flow.Flow
@@ -21,12 +23,16 @@ class SampleActivity() : DefaultActivity<SampleIntent, SampleResult, SampleUiSta
     @Composable
     override fun SetContentComposable(state: State<SampleUiState>) {
         MvicommonprojectTheme {
-            SampleButton(state.value.shouldShow, { emitIntent(SampleIntent.ToggleImageVisibility) }, { })
+            SampleButton(state.value.shouldShow, { emitIntent(SampleIntent.ToggleImageVisibility) }, { emitIntent(SampleIntent.Navigate) })
         }
     }
 
     override fun handleEffect(sideEffect: MviSideEffect) {
-        TODO("Not yet implemented")
+        when(sideEffect) {
+            SampleSideEffect.Navigate -> {
+                Toast.makeText(this, "Navigate", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     override fun intents(): List<Flow<SampleIntent>> = emptyList()

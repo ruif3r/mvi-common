@@ -10,6 +10,7 @@ class SampleSideEffectFactory : MviSideEffectFactory<SampleResult, SampleUiState
         currentState: SampleUiState
     ): MviSideEffect? =
         when (result) {
+            SampleResult.Navigate -> SampleSideEffect.Navigate
             else -> null
         }
 }

@@ -10,5 +10,6 @@ class SampleUiStateFactory : MviUiStateFactory<SampleUiState, SampleResult> {
     ): SampleUiState =
         when (result) {
             SampleResult.ToggleImageVisibility -> oldState.copy(shouldShow = !oldState.shouldShow)
+            SampleResult.Navigate -> oldState
         }
 }
